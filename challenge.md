@@ -48,12 +48,14 @@ but we know that takes time create Dockerfiles and docker-compose.yml files,
 so if you have time please add some basic docker way to run your challenge.
 
 ## Instructions
-
-**TODO:** Add here your documentation.
 Working demo: https://coya-challenge.herokuapp.com/
-To run locally memcache server has to be up and running
+Repo: https://github.com/danilol/coya_challenge
 
+To run locally:
+* Start memcached
+* Start postgres
 
 ## Impressions
-
-**TODO:** Add here your impressions and notes.
+Caching is working properly using dalli and memcached
+To test the timeout, just change the method on service file.
+I was using the country and point, then I read the instructions again and realized the correct endpoint is the capital one =)
