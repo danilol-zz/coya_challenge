@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=c4ec15791ed2c066cca8dd5d51ad6a74&q=Tokyo&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 27 Aug 2017 20:23:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '434'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?q=tokyo&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":139.69,"lat":35.69},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":22.05,"pressure":1018,"humidity":82,"temp_min":20,"temp_max":24},"visibility":16093,"wind":{"speed":2.1,"deg":360},"clouds":{"all":1},"dt":1503863760,"sys":{"type":1,"id":7622,"message":0.0028,"country":"JP","sunrise":1503778192,"sunset":1503825282},"id":1850147,"name":"Tokyo","cod":200}'
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 20:23:38 GMT
+- request:
+    method: get
+    uri: https://restcountries.eu/rest/v2/capital/Tokyo
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 27 Aug 2017 20:23:37 GMT
+      Server:
+      - Apache/2.4.25 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Accept, X-Requested-With
+      Cache-Control:
+      - public, max-age=86400
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sibmFtZSI6IkphcGFuIiwidG9wTGV2ZWxEb21haW4iOlsiLmpwIl0sImFscGhhMkNvZGUiOiJKUCIsImFscGhhM0NvZGUiOiJKUE4iLCJjYWxsaW5nQ29kZXMiOlsiODEiXSwiY2FwaXRhbCI6IlRva3lvIiwiYWx0U3BlbGxpbmdzIjpbIkpQIiwiTmlwcG9uIiwiTmlob24iXSwicmVnaW9uIjoiQXNpYSIsInN1YnJlZ2lvbiI6IkVhc3Rlcm4gQXNpYSIsInBvcHVsYXRpb24iOjEyNjk2MDAwMCwibGF0bG5nIjpbMzYuMCwxMzguMF0sImRlbW9ueW0iOiJKYXBhbmVzZSIsImFyZWEiOjM3NzkzMC4wLCJnaW5pIjozOC4xLCJ0aW1lem9uZXMiOlsiVVRDKzA5OjAwIl0sImJvcmRlcnMiOltdLCJuYXRpdmVOYW1lIjoi5pel5pysIiwibnVtZXJpY0NvZGUiOiIzOTIiLCJjdXJyZW5jaWVzIjpbeyJjb2RlIjoiSlBZIiwibmFtZSI6IkphcGFuZXNlIHllbiIsInN5bWJvbCI6IsKlIn1dLCJsYW5ndWFnZXMiOlt7ImlzbzYzOV8xIjoiamEiLCJpc282MzlfMiI6ImpwbiIsIm5hbWUiOiJKYXBhbmVzZSIsIm5hdGl2ZU5hbWUiOiLml6XmnKzoqp4gKOOBq+OBu+OCk+OBlCkifV0sInRyYW5zbGF0aW9ucyI6eyJkZSI6IkphcGFuIiwiZXMiOiJKYXDDs24iLCJmciI6IkphcG9uIiwiamEiOiLml6XmnKwiLCJpdCI6IkdpYXBwb25lIiwiYnIiOiJKYXDDo28iLCJwdCI6IkphcMOjbyJ9LCJmbGFnIjoiaHR0cHM6Ly9yZXN0Y291bnRyaWVzLmV1L2RhdGEvanBuLnN2ZyIsInJlZ2lvbmFsQmxvY3MiOltdfV0=
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 20:23:38 GMT
+recorded_with: VCR 3.0.3

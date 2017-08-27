@@ -39,6 +39,8 @@ group :development, :test do
   gem "rspec-rails"
   gem "vcr"
   gem "capybara"
+  gem "poltergeist"
+  gem "launchy"
   gem "webmock"
   gem "rubocop", require: false
   gem "rubocop-rspec"

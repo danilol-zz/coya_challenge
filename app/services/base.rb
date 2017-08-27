@@ -5,7 +5,7 @@ class Base
   default_timeout 60
 
   def initialize(options = {})
-    @city = options[:city]
+    @city = options[:city] || "Berlin"
   end
 
   def fetch

@@ -1,0 +1,85 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=c4ec15791ed2c066cca8dd5d51ad6a74&q=Berlin&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 27 Aug 2017 20:21:06 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '424'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?q=berlin&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":13.41,"lat":52.52},"weather":[{"id":800,"main":"Clear","description":"clear
+        sky","icon":"01n"}],"base":"stations","main":{"temp":18.51,"pressure":1018,"humidity":68,"temp_min":18,"temp_max":19},"visibility":10000,"wind":{"speed":0.5},"clouds":{"all":0},"dt":1503863400,"sys":{"type":1,"id":4892,"message":0.3632,"country":"DE","sunrise":1503807023,"sunset":1503857019},"id":2950159,"name":"Berlin","cod":200}'
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 20:21:06 GMT
+- request:
+    method: get
+    uri: https://restcountries.eu/rest/v2/capital/Berlin
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: ''
+    headers:
+      Date:
+      - Sun, 27 Aug 2017 20:21:06 GMT
+      Server:
+      - Apache/2.4.25 (Debian)
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET
+      Access-Control-Allow-Headers:
+      - Accept, X-Requested-With
+      Cache-Control:
+      - public, max-age=86400
+      Content-Type:
+      - application/json;charset=utf-8
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sibmFtZSI6Ikdlcm1hbnkiLCJ0b3BMZXZlbERvbWFpbiI6WyIuZGUiXSwiYWxwaGEyQ29kZSI6IkRFIiwiYWxwaGEzQ29kZSI6IkRFVSIsImNhbGxpbmdDb2RlcyI6WyI0OSJdLCJjYXBpdGFsIjoiQmVybGluIiwiYWx0U3BlbGxpbmdzIjpbIkRFIiwiRmVkZXJhbCBSZXB1YmxpYyBvZiBHZXJtYW55IiwiQnVuZGVzcmVwdWJsaWsgRGV1dHNjaGxhbmQiXSwicmVnaW9uIjoiRXVyb3BlIiwic3VicmVnaW9uIjoiV2VzdGVybiBFdXJvcGUiLCJwb3B1bGF0aW9uIjo4MTc3MDkwMCwibGF0bG5nIjpbNTEuMCw5LjBdLCJkZW1vbnltIjoiR2VybWFuIiwiYXJlYSI6MzU3MTE0LjAsImdpbmkiOjI4LjMsInRpbWV6b25lcyI6WyJVVEMrMDE6MDAiXSwiYm9yZGVycyI6WyJBVVQiLCJCRUwiLCJDWkUiLCJETksiLCJGUkEiLCJMVVgiLCJOTEQiLCJQT0wiLCJDSEUiXSwibmF0aXZlTmFtZSI6IkRldXRzY2hsYW5kIiwibnVtZXJpY0NvZGUiOiIyNzYiLCJjdXJyZW5jaWVzIjpbeyJjb2RlIjoiRVVSIiwibmFtZSI6IkV1cm8iLCJzeW1ib2wiOiLigqwifV0sImxhbmd1YWdlcyI6W3siaXNvNjM5XzEiOiJkZSIsImlzbzYzOV8yIjoiZGV1IiwibmFtZSI6Ikdlcm1hbiIsIm5hdGl2ZU5hbWUiOiJEZXV0c2NoIn1dLCJ0cmFuc2xhdGlvbnMiOnsiZGUiOiJEZXV0c2NobGFuZCIsImVzIjoiQWxlbWFuaWEiLCJmciI6IkFsbGVtYWduZSIsImphIjoi44OJ44Kk44OEIiwiaXQiOiJHZXJtYW5pYSIsImJyIjoiQWxlbWFuaGEiLCJwdCI6IkFsZW1hbmhhIn0sImZsYWciOiJodHRwczovL3Jlc3Rjb3VudHJpZXMuZXUvZGF0YS9kZXUuc3ZnIiwicmVnaW9uYWxCbG9jcyI6W3siYWNyb255bSI6IkVVIiwibmFtZSI6IkV1cm9wZWFuIFVuaW9uIiwib3RoZXJBY3JvbnltcyI6W10sIm90aGVyTmFtZXMiOltdfV19XQ==
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 20:21:07 GMT
+recorded_with: VCR 3.0.3
