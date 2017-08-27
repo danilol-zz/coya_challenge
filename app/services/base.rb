@@ -22,13 +22,13 @@ class Base
         end
       end
     rescue => e
-      build_error_response({ "cod" => 500, "message" => "Internal Error"})
+      build_error_response({ "cod" => 500, "message" => "Internal Error" })
     end
   end
 
   def build_error_response(api_response)
     OpenStruct.new(
-      code: (api_response["cod"] || api_response['status']).to_i,
+      code: (api_response["cod"] || api_response["status"]).to_i,
       message: api_response["message"],
       success?: false
     )

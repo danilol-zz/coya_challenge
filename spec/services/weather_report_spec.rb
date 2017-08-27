@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe WeatherReport do
   let(:weather_report) { described_class.new(options) }

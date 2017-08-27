@@ -1,0 +1,83 @@
+AllCops:
+  DisabledByDefault: true
+  Exclude:
+    - 'db/migrate/*'
+    - 'db/schema.rb'
+    - 'bin/*'
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+
+Layout/LeadingCommentSpace:
+  Enabled: true
+
+Layout/Tab:
+  Enabled: true
+
+Layout/SpaceInsideHashLiteralBraces:
+  Enabled: true
+  EnforcedStyle: space
+  EnforcedStyleForEmptyBraces: no_space
+
+Layout/SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: true
+
+Style/NilComparison:
+  Enabled: true
+
+Style/Encoding:
+  Enabled: true
+
+Lint/Debugger:
+  Enabled: true
+
+Style/AndOr:
+  Enabled: true
+
+Layout/AccessModifierIndentation:
+  Enabled: true
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: true
+
+Layout/EmptyLineBetweenDefs:
+  Enabled: true
+
+Layout/EmptyLines:
+  Enabled: true
+
+Layout/IndentationConsistency:
+  Enabled: true
+
+# Layout/IndentationWidth:
+#   Enabled: true
+
+Layout/TrailingBlankLines:
+  Enabled: true
+
+require: rubocop-rspec
+
+RSpec/BeEql:
+  Enabled: true
+
+RSpec/EmptyExampleGroup:
+  Enabled: true
+
+RSpec/EmptyLineAfterFinalLet:
+  Enabled: true
+
+RSpec/EmptyLineAfterSubject:
+  Enabled: true
+
+RSpec/Focus:
+  Enabled: true
+
+RSpec/MultipleDescribes:
+  Enabled: true

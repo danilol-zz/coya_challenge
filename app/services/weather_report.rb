@@ -1,7 +1,7 @@
 class WeatherReport < Base
   attr_accessor :city, :response
 
-  base_uri        'api.openweathermap.org/data/'
+  base_uri        "api.openweathermap.org/data/"
 
   private
 

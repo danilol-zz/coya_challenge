@@ -1,7 +1,7 @@
 class CountryInfo < Base
   attr_accessor :city, :response
 
-  base_uri        'https://restcountries.eu/'
+  base_uri        "https://restcountries.eu/"
 
   private
 

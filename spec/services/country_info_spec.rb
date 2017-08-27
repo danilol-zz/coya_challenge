@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 describe CountryInfo do
   let(:country_info) { described_class.new(options) }
@@ -18,7 +18,7 @@ describe CountryInfo do
           expect(subject.code).to    eq 200
           expect(subject.name).to    eq "Germany"
           expect(subject.capital).to eq "Berlin"
-          expect(subject.currencies.first).to eq ({"code"=>"EUR", "name"=>"Euro", "symbol"=>"€"})
+          expect(subject.currencies.first).to eq ({ "code"=>"EUR", "name"=>"Euro", "symbol"=>"€" })
         end
       end
 
