@@ -1,19 +1,12 @@
-require "httparty"
-
-class WeatherReport
-  include HTTParty
-
+class WeatherReport < Base
   attr_accessor :options, :response
 
   base_uri        'api.openweathermap.org/data/'
   default_timeout 1
+  CACHE_EXPIRATION = 5.minutes
 
   def initialize(options = {})
     @options = options
-  end
-
-  def fetch
-    @response = request_service
   end
 
   private
@@ -45,24 +38,8 @@ class WeatherReport
     "#{ICON_URL}/#{icon}.png"
   end
 
-  def request_service
-    begin
-      handle_timeouts do
-        handle_caching do
-          self.class.get("/2.5/weather?", { query: build_params })
-        end
-      end
-    rescue
-      build_response({ "cod" => 500, "message" => "Internal Error"})
-    end
-  end
-
-  def handle_timeouts
-    begin
-      yield
-    rescue Net::OpenTimeout, Net::ReadTimeout
-      build_response({ "cod" => 408, "message" => "Request Timeout: execution expired" })
-    end
+  def make_request
+    self.class.get("/2.5/weather?", { query: build_params })
   end
 
   def cache_key
@@ -79,12 +56,16 @@ class WeatherReport
     else
       yield.tap do |result|
         if result.success?
-          Rails.cache.write(cache_key, result.to_json)
+          Rails.cache.write(cache_key, result.to_json, expires_in: CACHE_EXPIRATION)
         end
 
         return build_response(JSON[result.to_json])
       end
     end
+  end
+
+  def read_from_cache
+    @cached ||= Rails.cache.fetch(cache_key)
   end
 
   def build_response(api_response)

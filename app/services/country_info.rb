@@ -1,8 +1,4 @@
-require "httparty"
-
-class CountryInfo
-  include HTTParty
-
+class CountryInfo < Base
   attr_accessor :city, :response
 
   base_uri        'https://restcountries.eu/'
@@ -13,22 +9,10 @@ class CountryInfo
     @city = options[:city]
   end
 
-  def fetch
-    @response = request_service
-  end
-
   private
 
-  def request_service
-    begin
-      handle_timeouts do
-        handle_caching do
-          self.class.get("/rest/v2/capital/#{city}")
-        end
-      end
-    rescue => e
-      build_error_response({ "cod" => 500, "message" => "Internal Error"})
-    end
+  def make_request
+    self.class.get("/rest/v2/capital/#{city}")
   end
 
   def build_success_response(api_response)
@@ -70,14 +54,6 @@ class CountryInfo
       message: api_response["message"],
       success?: false
     )
-  end
-
-  def handle_timeouts
-    begin
-      yield
-    rescue Net::OpenTimeout, Net::ReadTimeout
-      build_error_response({ "cod" => 408, "message" => "Request Timeout: execution expired" })
-    end
   end
 
   def cache_key
