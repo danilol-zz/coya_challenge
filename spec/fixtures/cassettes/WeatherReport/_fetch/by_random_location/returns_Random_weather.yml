@@ -1,0 +1,45 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.openweathermap.org/data/2.5/weather?appid=c4ec15791ed2c066cca8dd5d51ad6a74&lat=27.33&lon=98.09&units=metric
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - openresty
+      Date:
+      - Sun, 27 Aug 2017 15:02:42 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '468'
+      Connection:
+      - keep-alive
+      X-Cache-Key:
+      - "/data/2.5/weather?lat=27.33&lon=98.09&units=metric"
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Allow-Methods:
+      - GET, POST
+    body:
+      encoding: UTF-8
+      string: '{"coord":{"lon":98.09,"lat":27.33},"weather":[{"id":500,"main":"Rain","description":"light
+        rain","icon":"10n"}],"base":"stations","main":{"temp":20.19,"pressure":865.49,"humidity":96,"temp_min":20.19,"temp_max":20.19,"sea_level":1019.64,"grnd_level":865.49},"wind":{"speed":0.67,"deg":26.002},"rain":{"3h":0.295},"clouds":{"all":80},"dt":1503846162,"sys":{"message":0.0032,"country":"CN","sunrise":1503788678,"sunset":1503834777},"id":1281497,"name":"Cikai","cod":200}'
+    http_version: 
+  recorded_at: Sun, 27 Aug 2017 15:02:42 GMT
+recorded_with: VCR 3.0.3
