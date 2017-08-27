@@ -2,8 +2,6 @@ class CountryInfo < Base
   attr_accessor :city, :response
 
   base_uri        'https://restcountries.eu/'
-  default_timeout 120
-  CACHE_EXPIRATION = 5.minutes
 
   def initialize(options = {})
     @city = options[:city]
@@ -48,30 +46,11 @@ class CountryInfo < Base
     )
   end
 
-  def build_error_response(api_response)
-    OpenStruct.new(
-      code: 404,
-      message: api_response["message"],
-      success?: false
-    )
-  end
-
   def cache_key
     "country_info:city:#{city}" if city.present?
   end
 
-  def handle_caching
-    if cached = Rails.cache.fetch(cache_key)
-      build_success_response(cached)
-    else
-      yield.tap do |result|
-        if result.success?
-          Rails.cache.write(cache_key, JSON[result.body], expires_in: CACHE_EXPIRATION)
-          return build_success_response(JSON[result.body])
-        end
-
-        return build_error_response(JSON[result.body])
-      end
-    end
+  def cache_expiration
+    1.day
   end
 end

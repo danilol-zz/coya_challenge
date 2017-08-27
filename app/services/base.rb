@@ -8,6 +8,8 @@ class Base
     @response = request_service
   end
 
+  private
+
   def request_service
     begin
       handle_timeouts do
@@ -22,7 +24,7 @@ class Base
 
   def build_error_response(api_response)
     OpenStruct.new(
-      code: api_response["cod"].to_i,
+      code: (api_response["cod"] || api_response['status']).to_i,
       message: api_response["message"],
       success?: false
     )
@@ -38,16 +40,22 @@ class Base
 
   def handle_caching
     if cached = Rails.cache.fetch(cache_key)
-      build_success_response(cached)
+      build_response(cached)
     else
       yield.tap do |result|
+        content = parse_content(result.body)
+
         if result.success?
-          Rails.cache.write(cache_key, JSON[result.body], expires_in: CACHE_EXPIRATION)
-          return build_success_response(JSON[result.body])
+          Rails.cache.write(cache_key, content, expires_in: cache_expiration)
+          return build_success_response(content)
         end
 
-        return build_error_response(JSON[result.body])
+        return build_error_response(content)
       end
     end
+  end
+
+  def parse_content(content)
+    JSON[content]
   end
 end

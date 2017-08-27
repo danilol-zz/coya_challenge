@@ -2,8 +2,6 @@ class WeatherReport < Base
   attr_accessor :options, :response
 
   base_uri        'api.openweathermap.org/data/'
-  default_timeout 1
-  CACHE_EXPIRATION = 5.minutes
 
   def initialize(options = {})
     @options = options
@@ -50,19 +48,6 @@ class WeatherReport < Base
     end
   end
 
-  def handle_caching
-    if cached = Rails.cache.fetch(cache_key)
-      build_response(JSON[cached])
-    else
-      yield.tap do |result|
-        if result.success?
-          Rails.cache.write(cache_key, result.to_json, expires_in: CACHE_EXPIRATION)
-        end
-
-        return build_response(JSON[result.to_json])
-      end
-    end
-  end
 
   def read_from_cache
     @cached ||= Rails.cache.fetch(cache_key)
@@ -112,4 +97,8 @@ class WeatherReport < Base
     celsius:    "metric",
     kelvin:     "",
   }.freeze
+
+  def cache_expiration
+    5.minutes
+  end
 end
