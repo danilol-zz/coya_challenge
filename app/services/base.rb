@@ -43,20 +43,35 @@ class Base
   end
 
   def handle_caching
-    if cached = Rails.cache.fetch(cache_key)
-      build_response(cached)
-    else
-      yield.tap do |result|
-        content = parse_content(result.body)
+    return cached_content if cached?
 
-        if result.success?
-          Rails.cache.write(cache_key, content, expires_in: cache_expiration)
-          return build_success_response(content)
-        end
-
-        return build_error_response(content)
-      end
+    yield.tap do |result|
+      return handle_response(result)
     end
+  end
+
+  def handle_response(result)
+    content = parse_content(result.body)
+
+    if result.success?
+      write_to_cache(content)
+      build_success_response(content)
+    else
+      build_error_response(content)
+    end
+  end
+
+  def cached?
+    Rails.cache.exist?(cache_key)
+  end
+
+  def cached_content
+    content = Rails.cache.fetch(cache_key)
+    build_success_response(content)
+  end
+
+  def write_to_cache(content)
+    Rails.cache.write(cache_key, content, expires_in: cache_expiration)
   end
 
   def parse_content(content)
