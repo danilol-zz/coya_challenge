@@ -4,6 +4,10 @@ class Base
   include HTTParty
   default_timeout 60
 
+  def initialize(options = {})
+    @city = options[:city]
+  end
+
   def fetch
     @response = request_service
   end

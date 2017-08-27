@@ -1,11 +1,7 @@
 class WeatherReport < Base
-  attr_accessor :options, :response
+  attr_accessor :city, :response
 
   base_uri        'api.openweathermap.org/data/'
-
-  def initialize(options = {})
-    @options = options
-  end
 
   private
 
@@ -15,21 +11,7 @@ class WeatherReport < Base
       units: UNITS[:celsius],
     }
 
-    if options[:city].present?
-      request_params.merge(q: options[:city])
-    elsif options[:lat].present? && options[:lon].present?
-      request_params.merge(lat: options[:lat], lon: options[:lon])
-    else
-      request_params.merge(lat: rand_lat, lon: rand_lon)
-    end
-  end
-
-  def rand_lat
-    rand(-90.000000...90.000000)
-  end
-
-  def rand_lon
-    rand(-180.000000...180.000000)
+    request_params.merge(q: city) if city.present?
   end
 
   def build_icon_link(icon)
@@ -41,24 +23,7 @@ class WeatherReport < Base
   end
 
   def cache_key
-    if build_params[:q].present?
-      "weather_app:city:#{ build_params[:q] }"
-    else
-      "weather_app:lat_x_lon:#{build_params[:lat]}_#{build_params[:lon]}"
-    end
-  end
-
-
-  def read_from_cache
-    @cached ||= Rails.cache.fetch(cache_key)
-  end
-
-  def build_response(api_response)
-    if api_response["cod"] == 200
-      build_success_response(api_response)
-    else
-      build_error_response(api_response)
-    end
+    "weather_app:city:#{ build_params[:q] }" if build_params[:q].present?
   end
 
   def build_success_response(api_response)
@@ -79,14 +44,6 @@ class WeatherReport < Base
         pressure: api_response["main"]["pressure"]
       },
       success?: true
-    )
-  end
-
-  def build_error_response(api_response)
-    OpenStruct.new(
-      code: api_response["cod"].to_i,
-      message: api_response["message"],
-      success?: false
     )
   end
 

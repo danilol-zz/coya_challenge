@@ -3,10 +3,6 @@ class CountryInfo < Base
 
   base_uri        'https://restcountries.eu/'
 
-  def initialize(options = {})
-    @city = options[:city]
-  end
-
   private
 
   def make_request

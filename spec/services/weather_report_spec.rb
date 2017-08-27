@@ -35,38 +35,6 @@ describe WeatherReport do
       end
     end
 
-    context "by geolocation" do
-      let(:options) { { lat: "-23.43", lon: -45.07 } }
-
-      before { weather_report.fetch }
-
-      it "returns the Berlin weather" do
-        expect(subject).to be_a OpenStruct
-        expect(subject.success?).to be true
-        expect(subject.code).to           eq 200
-        expect(subject.city).to           eq "Ubatuba"
-        expect(subject.weather[:main]).to eq "Clear"
-      end
-    end
-
-    context "by random location" do
-      let(:options) { { } }
-
-      before do
-        allow(weather_report).to receive(:rand_lat).and_return(27.33)
-        allow(weather_report).to receive(:rand_lon).and_return(98.09)
-        weather_report.fetch
-      end
-
-      it "returns Random weather" do
-        expect(subject).to be_a OpenStruct
-        expect(subject.success?).to be true
-        expect(subject.code).to           eq 200
-        expect(subject.city).to           eq "Cikai"
-        expect(subject.weather[:main]).to eq "Rain"
-      end
-    end
-
     context "when request reaches timeout" do
       let(:response) { OpenStruct.new(code: 408, message: "Request Timeout: execution expired", success?: false) }
       let(:options) { { city: "Berlin" } }
