@@ -1,5 +1,10 @@
 {
   "name": "coya_challenge",
-  "private": true,
-  "dependencies": {}
+  "description": "Challenge for Coya",
+  "author": "Danilo Lima",
+  "version": "0.1.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "uikit": "3.0.0-beta.24"
+  }
 }

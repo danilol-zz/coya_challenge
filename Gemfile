@@ -31,7 +31,7 @@ gem "jbuilder", "~> 2.5"
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem "httparty"
-gem "bower-rails"
+gem 'npm-pipeline-rails'
 gem "dalli"
 
 group :development, :test do
