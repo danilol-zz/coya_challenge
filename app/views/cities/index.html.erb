@@ -1,8 +1,10 @@
-<% if @report.success? and @info.success? %>
-  <%= @report.city %>, <%= @info.name %>
-  <%= @report.weather[:temp] %> deg
-  Currency: <%= @info.currencies.first["code"] %>
-<% else %>
-  <%= @info   unless @info.success? %>
-  <%= @report unless @report.success? %>
-<% end %>
+<div>
+  <% if @report.success? and @info.success? %>
+    <%= @report.city %>, <%= @info.name %>
+    <%= @report.weather[:temp] %> deg
+    Currency: <%= @info.currencies.first["code"] %>
+  <% else %>
+    <%= @info   unless @info.success? %>
+    <%= @report unless @report.success? %>
+  <% end %>
+</div>
