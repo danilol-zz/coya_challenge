@@ -1,10 +1,15 @@
-<div>
+<div class="uk-width-1-1 uk-width-1-2@m">
+  <%= image_tag "weather_icons/#{@report.weather[:main].downcase}.svg" %>
+  <%= image_tag @report.weather[:icon] %>
+</div>
+
+<div class="uk-width-1-1 uk-width-1-2@m">
   <% if @report.success? and @info.success? %>
     <%= @report.city %>, <%= @info.name %>
     <%= @report.weather[:temp] %> deg
     Currency: <%= @info.currencies.first["code"] %>
-  <% else %>
-    <%= @info   unless @info.success? %>
-    <%= @report unless @report.success? %>
-  <% end %>
+<% else %>
+  <%= @info   unless @info.success? %>
+  <%= @report unless @report.success? %>
+<% end %>
 </div>
