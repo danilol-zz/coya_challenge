@@ -51,17 +51,15 @@ so if you have time please add some basic docker way to run your challenge.
 Working demo: https://coya-challenge.herokuapp.com/
 Repo: https://github.com/danilol/coya_challenge
 
-To run locally:
+To run locally without docker:
 * Start memcached
 * Start postgres
+* rails s
 
 ## Impressions
 * Caching is working properly using dalli and memcached
 * To test the timeout, just change the method on service file.
 * I was using the country and point, then I read the instructions again and realized the correct endpoint is the capital one =)
-
-Frontend
-* The fonts you sent me were in the .TTF format, I thought was better to convert to .WOFF for browser compatibility
-* The icons had to be centralized
-* For the background I had the possibility of using css class or just simply changing the svg color directly. My choice was the easisest one.
+* There were many weather conditions returned by the API missing in the Icons directory provided for this challenge.
+I've found the icon set and added to the directory.
 
