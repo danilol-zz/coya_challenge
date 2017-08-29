@@ -63,4 +63,5 @@ To run locally:
 Frontend
 * The fonts you sent me were in the .TTF format, I thought was better to convert to .WOFF for browser compatibility
 * The icons had to be centralized
+* For the background I had the possibility of using css class or just simply changing the svg color directly. My choice was the easisest one.
 
