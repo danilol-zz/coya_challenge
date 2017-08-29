@@ -6,5 +6,9 @@
   "main": "gulpfile.js",
   "dependencies": {
     "uikit": "3.0.0-beta.24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danilol/coya_challenge.git"
   }
 }
