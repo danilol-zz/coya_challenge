@@ -41,6 +41,20 @@ $text-meta-link-hover-color:                     $global-color !default;
 // ========================================================================
 
 // @mixin hook-text-misc(){}
+.city-country {
+  color: $gray;
+  font-size: 28px;
+}
+
+.degrees {
+  color: $persian-green;
+  font-size: 33px;
+}
+
+.currency {
+  color: $gray;
+  font-size: 24px;
+}
 
 
 // Inverse
