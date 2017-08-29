@@ -4,7 +4,7 @@
 
 <div class="uk-width-1-1 uk-width-1-2@m">
   <% if @report.success? and @info.success? %>
-    <div class="city-country"><%= @report.city %>, <%= @info.name %></div>
+    <div class="city-country"><strong><%= @report.city %></strong>, <%= @info.name %></div>
     <div class="degrees"><%= @report.weather[:temp] %> deg</div>
     <div><strong>Currency:</strong> <%= @info.currencies.first["code"] %></div>
 <% else %>

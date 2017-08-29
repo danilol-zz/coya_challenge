@@ -56,6 +56,11 @@ To run locally:
 * Start postgres
 
 ## Impressions
-Caching is working properly using dalli and memcached
-To test the timeout, just change the method on service file.
-I was using the country and point, then I read the instructions again and realized the correct endpoint is the capital one =)
+* Caching is working properly using dalli and memcached
+* To test the timeout, just change the method on service file.
+* I was using the country and point, then I read the instructions again and realized the correct endpoint is the capital one =)
+
+Frontend
+* The fonts you sent me were in the .TTF format, I thought was better to convert to .WOFF for browser compatibility
+* The icons had to be centralized
+
