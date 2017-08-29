@@ -1,39 +1,20 @@
 version: '2'
-
-volumes:
-  # We'll define a volume that will store the data from the postgres databases:
-  postgres-data:
-    driver: local
-
 services:
-  postgres:
+  db:
     image: postgres:9.3.15
-    ports:
-      # We'll bind our host's port 5432 to postgres's port 5432, so we can use
-      # our database IDEs with it:
-      - 5432:5432
-    volumes:
-      # Mount the DB dumps folder into the container, to be able to create & access database dumps:
-      - ./db/dumps:/db/dumps
-      # Mount out tmp folder, we might want to have access to something there during development:
-      - ./tmp:/tmp
-      # Mount our 'restoredb' script:
-      - ./bin/restoredb:/bin/restoredb:ro
-      # Mount our 'dumpdb' script:
-      - ./bin/dumpdb:/bin/dumpdb:ro
-      # We'll mount the 'postgres-data' volume into the location Postgres stores it's data:
-      - postgres-data:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: bilau
   memcached:
     image: memcached:latest
-  coya:
+  web:
     build: .
-    command: bin/rails server --port 3009 --binding 0.0.0.0
+    command: bundle exec rails server --port 3000 --binding 0.0.0.0
     ports:
-      - "3009:3009"
+      - "3000:3000"
     links:
-      - postgres:db.local
+      - db
       - memcached
+    environment:
+      - POSTGRES_DB=coya_challenge_development
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=coya
     volumes:
       - .:/coya_challenge
