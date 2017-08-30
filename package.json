@@ -1,7 +1,9 @@
 {
   "scripts": {
-    "start": "gulp watch",
-    "build": "gulp build"
+    "brunch:start": "rails s",
+    "webpack:start": "rails s",
+    "start": "rails s",
+    "build": "rake assets:precompile"
   },
   "repository": {
     "type": "git",
@@ -9,10 +11,5 @@
   },
   "dependencies": {
     "uikit": "3.0.0-beta.24"
-  },
-  "devDependencies": {
-    "gulp": "3.9.1",
-    "gulp-cli": "1.2.1",
-    "gulp-concat": "2.6.0"
   }
 }
