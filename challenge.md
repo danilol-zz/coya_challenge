@@ -74,6 +74,9 @@ Frontend
 * The icons had to be centralized for the correct alignment
 
 Docker
-* Although I'm not using the database, I decided to let the postgres service as a challenge (had some problems, but fixed)
+* Although I'm not using the database, I decided to use the postgres service as a challenge (had some problems, but fixed)
 * The container is working, you can start and access the app using:
+docker-compose up -d
+docker-compose build (After build you can access http://localhost:3000)
+docker-compose run web rspec
 
