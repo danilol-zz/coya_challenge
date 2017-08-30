@@ -60,7 +60,8 @@ To run locally without docker:
 ## Impressions
 * I enjoyed implementing this challenge. I learned a lot, since this was my first project with FE did 100% by me. I'm very proud.
 Independent of the result, the balance is already positive.
-* If I had more time I would improve the service API response objects instead of using OpenStruct
+* If I had more time I would improve the service API response objects instead of using OpenStruct and also not use all the Rails
+framework, to make the project smaller, but after I built the services I was worried about the FE.
 
 * There is no database configured
 * Caching is working properly using dalli and memcached
