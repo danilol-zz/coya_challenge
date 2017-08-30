@@ -1,16 +1,16 @@
-<% if @report.success? and @info.success? %>
+<% if @data.success? %>
   <div class="uk-width-1-1 uk-width-1-2@m">
-    <%= image_tag "weather_icons/#{@report.weather[:main].downcase}.svg", "uk-svg" => "", class: "weather-icon" %>
+    <%= image_tag @data.weather_icon_url, "uk-svg" => "", class: "weather-icon" %>
   </div>
   <div class="uk-width-1-1 uk-width-1-2@m uk-text-center uk-text-left@m">
     <div class="city-country">
-      <strong><%= @report.city %></strong>, <%= @info.name %>
+      <strong><%= @data.city %></strong>, <%= @data.country %>
     </div>
     <div class="degrees">
-      <%= @report.weather[:temp] %> deg
+      <%= @data.temp %> deg
     </div>
     <div>
-      <strong>Currency:</strong> <%= @info.currencies.first["code"] %>
+      <strong>Currency:</strong> <%= @data.currency %>
     </div>
   </div>
 <% else %>
@@ -18,27 +18,12 @@
     <%= image_tag "error.svg", "uk-svg" => "", class: "weather-icon" %>
   </div>
   <div class="uk-width-1-1 uk-width-1-2@m uk-text-center uk-text-left@m">
-    <% unless @info.success?%>
+    <% unless @data.success?%>
       <div class="city-country">
-        <strong>Message:</strong> <%= @info.message %>
+        <strong>Message:</strong> <%= @data.error_message %>
       </div>
       <div class="degrees">
-        Code: <%= @info.code %>
-      </div>
-      <div>
-        <strong>Service:</strong> CountryInfo
-      </div>
-    <% end %>
-
-    <% unless @report.success?%>
-      <div class="city-country">
-        <strong>Message:</strong> <%= @report.message %>
-      </div>
-      <div class="degrees">
-        Code: <%= @report.code %>
-      </div>
-      <div>
-        <strong>Service:</strong> WeatherReport
+        Code: <%= @data.code %>
       </div>
     <% end %>
   </div>

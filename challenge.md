@@ -54,12 +54,26 @@ Repo: https://github.com/danilol/coya_challenge
 To run locally without docker:
 * Start memcached
 * Start postgres
-* rails s
+* bundle exec rails server
+* bundle exec rspec
 
 ## Impressions
+* I enjoyed implementing this challenge. I learned a lot, since this was my first project with FE did 100% by me. I'm very proud.
+Independent of the result, the balance is already positive.
+* If I had more time I would improve the service API response objects instead of using OpenStruct
+
+* There is no database configured
 * Caching is working properly using dalli and memcached
-* To test the timeout, just change the method on service file.
-* I was using the country and point, then I read the instructions again and realized the correct endpoint is the capital one =)
+* To test the timeout, just change the timeout method in the services file.
+* I was using the country endpoint, then I read the instructions again and realized the correct endpoint is the capital endpoint =)
 * There were many weather conditions returned by the API missing in the Icons directory provided for this challenge.
 I've found the icon set and added to the directory.
+
+Frontend
+* The fonts you sent me were in the .TTF format, I thought was better to convert to .WOFF for browser compatibility
+* The icons had to be centralized for the correct alignment
+
+Docker
+* Although I'm not using the database, I decided to let the postgres service as a challenge (had some problems, but fixed)
+* The container is working, you can start and access the app using:
 
