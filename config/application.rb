@@ -51,7 +51,7 @@ module CoyaChallenge
     # If you disable this, you'll need to run `npm install` yourself.
     # This is generally desired, but you may set this to false when
     # deploying to Heroku to speed things up.
-    config.npm.install_on_asset_precompile = true
+    #config.npm.install_on_asset_precompile = true
 
     # If 'true', runs 'npm install' on 'rails server'. (v1.7.0+)
     # If you disable this, you'll need to run `npm install` yourself.
