@@ -26,7 +26,7 @@ Rails.application.configure do
     # config.cache_store = :null_store
   # end
   #
-  config.cache_store = :dalli_store
+  config.cache_store = :dalli_store, ['memcached']
   config.action_controller.perform_caching = true
 
   # Don't care if the mailer can't send.

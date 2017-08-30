@@ -9,7 +9,8 @@ RUN apt-get install -y libpq-dev
 RUN apt-get install -y libqt4-webkit libqt4-dev xvfb
 
 # for a JS runtime
-RUN apt-get install -y nodejs
+RUN apt-get install -y npm nodejs nodejs-legacy
+RUN npm install -g phantomjs
 
 # for memcached
 RUN apt-get install -y memcached
